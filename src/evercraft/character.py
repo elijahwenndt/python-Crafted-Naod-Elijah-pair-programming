@@ -50,7 +50,7 @@ class Character:
 # base function that handles basic damage taken. pass in another character in instance to set up fight
     def take_damage(self, enemy):
         if self.dice_roll == 20:
-            self.attack *= crit_modifier
+            self.attack *= self.crit_modifier
         if self.dice_roll >= self.arclass:
             self.hitpoints -= self.attack
         if self.hitpoints == 0:
@@ -59,7 +59,7 @@ class Character:
 # calculates levels gained based on experience points
     def level_up(self):
         count = 1
-        while (count<20):
+        while (count<21):
             if self.expoints >= int(f"{count}000"):
                 self.level += 1
                 self.hitpoints += self.level_addition
